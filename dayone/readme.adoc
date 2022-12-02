@@ -1,0 +1,13 @@
+= The assignment
+
+https://adventofcode.com/2022/day/1[day 1 of advent of code]
+
+
+- Star Fruit, deep in the jungle
+- fifty stars dec. 25
+- on foot to the fruit
+- the number of calories each elf is carrying
+
+
+
+
