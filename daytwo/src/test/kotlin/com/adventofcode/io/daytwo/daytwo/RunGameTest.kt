@@ -21,4 +21,23 @@ class RunGameTest {
         println(playerTwo)
 
     }
+
+    @Test
+    fun shouldConfirmNewRuleSet() {
+        val readText = this.javaClass.classLoader.getResource("test-scores.data").readText()
+        val gameMachine = NewRulesMachine(readText)
+        val humanScore = gameMachine.calculateGame()
+        assertThat(humanScore).isEqualTo(12)
+    }
+
+    @Test
+    fun shouldCalulateNewRules() {
+        val gameMachine = NewRulesMachine(null)
+        val humanScore = gameMachine.calculateGame()
+
+        println(humanScore)
+
+    }
+
+
 }

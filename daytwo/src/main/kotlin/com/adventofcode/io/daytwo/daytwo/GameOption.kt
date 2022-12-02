@@ -22,6 +22,21 @@ enum class GameOption(val bonusPoint: Int) {
             SCISSORS -> other != ROCK
         }
     }
+    public fun winsTo(): GameOption {
+        return when (this) {
+            ROCK -> SCISSORS
+            PAPER -> ROCK
+            SCISSORS -> PAPER
+        }
+    }
+
+    public fun loosesTo(): GameOption {
+        return when (this) {
+            ROCK -> PAPER
+            PAPER -> SCISSORS
+            SCISSORS -> ROCK
+        }
+    }
 }
 
 enum class PlayerOneMapping(val gameOption: GameOption) {
@@ -34,4 +49,19 @@ enum class PlayerTwoMapping(val gameOption: GameOption) {
     X(GameOption.ROCK),
     Y(GameOption.PAPER),
     Z(GameOption.SCISSORS)
+}
+
+enum class OutcomeMapping(val score: Int) {
+    X(0),
+    Y(3),
+    Z(6);
+
+    fun resolveYourOption(other: GameOption): GameOption {
+        return when (this.score) {
+            0 -> other.winsTo()
+            3 -> other
+            6 -> other.loosesTo()
+            else -> throw IllegalArgumentException("unknown score")
+        }
+    }
 }
