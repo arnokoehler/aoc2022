@@ -3,11 +3,11 @@ package com.adventofcode.io.dayone
 import org.junit.jupiter.api.Test
 
 
-class InputCountingTest {
+class DayOneTest {
 
     @Test
     fun shouldCountAllTheCaloriesPerElf() {
-        val resource = this::class.java.classLoader.getResource("input.data")
+        val resource = this::class.java.classLoader.getResource("input-day-one.data")
         val dataOfTheElves = resource.readText()
         val dataPerElve = dataOfTheElves.split("\n\n")
 
@@ -27,7 +27,7 @@ class InputCountingTest {
 
     @Test
     fun shouldCountAllTheCaloriesPerThreeElfs() {
-        val resource = this::class.java.classLoader.getResource("input.data")
+        val resource = this::class.java.classLoader.getResource("input-day-one.data")
         val dataOfTheElves = resource.readText()
         val dataPerElve = dataOfTheElves.split("\n\n")
 
