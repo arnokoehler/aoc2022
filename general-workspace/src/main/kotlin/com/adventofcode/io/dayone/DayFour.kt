@@ -33,7 +33,7 @@ data class Ranges(val firstRange: IntRange, val secondRange: IntRange) {
 
     fun intersectPartial(): Boolean {
         val intersect = firstRange.intersect(secondRange)
-        return !intersect.isEmpty()
+        return intersect.isNotEmpty()
     }
 }
 
