@@ -1,5 +1,6 @@
 package com.adventofcode.io.dayone
 
+import com.adventofcode.io.dayone.FileUtils.Companion.splitLinesGroupedByNewline
 import org.junit.jupiter.api.Test
 
 
@@ -7,17 +8,15 @@ class DayOneTest {
 
     @Test
     fun shouldCountAllTheCaloriesPerElf() {
-        val resource = this::class.java.classLoader.getResource("input-day-one.data")
-        val dataOfTheElves = resource.readText()
-        val dataPerElve = dataOfTheElves.split("\n\n")
+        val dataPerElve = splitLinesGroupedByNewline("input-day-one.data")
 
-        var highScore = 0;
+        var highScore = 0
         for (data in dataPerElve) {
             val arrayOfCaloriesInText = data.split("\n")
             val valuesAsNumbers = arrayOfCaloriesInText.map(Integer::parseInt)
             valuesAsNumbers.sum()
             if (highScore < valuesAsNumbers.sum()) {
-                highScore = valuesAsNumbers.sum();
+                highScore = valuesAsNumbers.sum()
             }
         }
 
@@ -27,9 +26,7 @@ class DayOneTest {
 
     @Test
     fun shouldCountAllTheCaloriesPerThreeElfs() {
-        val resource = this::class.java.classLoader.getResource("input-day-one.data")
-        val dataOfTheElves = resource.readText()
-        val dataPerElve = dataOfTheElves.split("\n\n")
+        val dataPerElve = splitLinesGroupedByNewline("input-day-one.data")
 
         val highScore = mutableListOf<Int>()
         for (data in dataPerElve) {

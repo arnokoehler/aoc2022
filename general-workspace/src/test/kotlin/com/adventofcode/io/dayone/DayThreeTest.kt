@@ -1,5 +1,6 @@
 package com.adventofcode.io.dayone
 
+import com.adventofcode.io.dayone.FileUtils.Companion.getLines
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
@@ -7,34 +8,28 @@ class DayThreeTest {
 
     @Test
     fun `should add up to a sum of 157`() {
-        val theLogic = theBasicLogic(getRucksack("verification-set-day-03.data"))
+        val theLogic = theBasicLogic(getLines("verification-set-day-03.data"))
         assertThat(theLogic).isEqualTo(157)
     }
 
     @Test
     fun `run the actual calculation`() {
-        val actual = theBasicLogic(getRucksack("actual-input-day-03.data"))
+        val actual = theBasicLogic(getLines("actual-input-day-03.data"))
 
         println(actual)
     }
 
     @Test
     fun `badges should add up to 70`() {
-        val rucksack = getRucksack("verification-set-day-03.data")
+        val rucksack = getLines("verification-set-day-03.data")
         assertThat(complexLogic(rucksack)).isEqualTo(70)
     }
 
     @Test
     fun `run the actual complexLogic calculation`() {
-        val actual = complexLogic(getRucksack("actual-input-day-03.data"))
+        val actual = complexLogic(getLines("actual-input-day-03.data"))
 
         println(actual)
-    }
-
-    private fun getRucksack(s: String): List<String> {
-        val resource = this::class.java.classLoader.getResource(s)
-        val rucksackData = resource!!.readText()
-        return rucksackData.split("\n")
     }
 
     private fun findSameLetterInOneWord(haystack: String): Char {
